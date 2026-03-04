@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeMind — AI Study Helper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+
+  <div class="page">
+
+    <header class="header">
+      <div class="brand">
+        <div class="brand-icon">✦</div>
+        <span class="brand-name">CodeMind</span>
+      </div>
+      <span class="status-pill">● AI · Live</span>
+    </header>
+
+    <section class="hero">
+      <p class="hero-tag">DSA &nbsp;·&nbsp; Interview Prep &nbsp;·&nbsp; Concepts</p>
+      <h1 class="hero-title">Learn any topic,<br><em>the smart way.</em></h1>
+      <p class="hero-sub">Type any coding concept or algorithm and get a clean, structured breakdown in seconds.</p>
+    </section>
+
+    <div class="search-section">
+      <div class="search-box" id="searchBox">
+        <input
+          type="text"
+          id="topicInput"
+          class="search-input"
+          placeholder="e.g. Merge Sort, React Hooks, Binary Trees…"
+          autocomplete="off"
+        />
+        <button class="search-btn" id="studyBtn" onclick="fetchStudy()">
+          <span id="btnLabel">Explain →</span>
+        </button>
+      </div>
+      <div class="chips">
+        <button class="chip" onclick="setTopic('Binary Search')">Binary Search</button>
+        <button class="chip" onclick="setTopic('Dynamic Programming')">Dynamic Programming</button>
+        <button class="chip" onclick="setTopic('React Hooks')">React Hooks</button>
+        <button class="chip" onclick="setTopic('Hash Maps')">Hash Maps</button>
+        <button class="chip" onclick="setTopic('Big O Notation')">Big O Notation</button>
+        <button class="chip" onclick="setTopic('Recursion')">Recursion</button>
+      </div>
+    </div>
+
+    <div class="loader" id="loader">
+      <div class="loader-track"><div class="loader-bar"></div></div>
+      <p class="loader-text">Generating explanation…</p>
+    </div>
+
+    <div class="error-box" id="errorBox">
+      <span class="error-icon">⚠</span>
+      <span id="errorMsg">Something went wrong.</span>
+    </div>
+
+    <div class="results" id="results">
+
+      <div class="results-heading">
+        <h2 class="results-title" id="resultTopic">—</h2>
+        <span class="results-time" id="resultTime"></span>
+      </div>
+
+      <div class="card card-orange">
+        <div class="card-header">
+          <span class="card-icon">📖</span>
+          <span class="card-label">Simple Explanation</span>
+        </div>
+        <p class="card-body" id="simpleExplanation"></p>
+      </div>
+
+      <div class="two-col">
+        <div class="card card-sage">
+          <div class="card-header">
+            <span class="card-icon">✔</span>
+            <span class="card-label">Key Points</span>
+          </div>
+          <ul class="kp-list" id="keyPoints"></ul>
+        </div>
+
+        <div class="card card-rose">
+          <div class="card-header">
+            <span class="card-icon">💬</span>
+            <span class="card-label">Interview Questions</span>
+          </div>
+          <ol class="iq-list" id="interviewQuestions"></ol>
+        </div>
+      </div>
+
+      <div class="card card-sand">
+        <div class="card-header">
+          <span class="card-icon">🌍</span>
+          <span class="card-label">Real-World Example</span>
+        </div>
+        <p class="example-text" id="realWorldExample"></p>
+      </div>
+
+    </div>
+
+    <footer class="footer">
+      <span>CodeMind — AI Study Helper</span>
+      <div class="footer-tags">
+        <span>Flask</span>
+        <span>GLM Model</span>
+        <span>NVIDIA API</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
