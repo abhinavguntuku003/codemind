@@ -97,5 +97,9 @@ def study():
 
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+=======
+    app.run(debug=True)
+>>>>>>> 0a022c2cfe93bd4fef1e225e1fc6bd2c774fd6e6
